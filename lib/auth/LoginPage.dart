@@ -17,8 +17,8 @@ class _LoginPageState extends State<LoginPage> {
 
 
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
+  final _emailController = TextEditingController(text: 'hello@example.com');
+  final _passwordController = TextEditingController(text: '123');
 
   void _onLoginPress(){
     if(_formKey.currentState!.validate()){

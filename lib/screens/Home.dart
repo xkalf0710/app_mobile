@@ -1,3 +1,5 @@
+import 'package:app_mobile/blocs/bloc.dart';
+import 'package:app_mobile/blocs/events.dart';
 import 'package:app_mobile/providers/providers.dart';
 import 'package:app_mobile/widgets/page_loader.dart';
 import 'package:app_mobile/widgets/productlist.dart';
@@ -12,10 +14,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final _bloc = MainBloc();
 
   @override
   void initState(){
     super.initState();
+
+    _bloc.add(GetProductList());
+
   }
 
   @override
@@ -31,7 +37,7 @@ class _HomeState extends State<Home> {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),),
             const SizedBox(height: 10,),
-            Expanded(child: ProductList(data: [],)),
+            Expanded(child: ProductList(provider.products,)),
           ],
         )
             : const PageLoader();

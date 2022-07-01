@@ -7,7 +7,7 @@ class ProductCard extends StatelessWidget {
 
   final ProductModel item;
 
-  const ProductCard({Key? key,  required this.item}) : super(key: key);
+  const ProductCard(this.item, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,12 @@ class ProductCard extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 9,),
-                
+                Text(
+                  item.priceUSD.toString(),
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
+                )
               ],
             ),
           ),
